@@ -1,4 +1,4 @@
-Forward model to mixed chemical concentrations downstream. 
+#Forward model to mixed chemical concentrations downstream. 
 
 
 It is an adaptation of Alex Lipp's D8 accumulator code: https://github.com/AlexLipp/FlowAccum.
