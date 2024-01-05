@@ -1,7 +1,7 @@
 Forward model to mixed chemical concentrations downstream. 
 
 
-It is an adaptation of Alex Lipp's D8 accumulator code. 
+It is an adaptation of Alex Lipp's D8 accumulator code: https://github.com/AlexLipp/FlowAccum.
 
 A setup script is included to produce the digital elevation model and grid of chemicals needed for the forward model. 
 
