@@ -1,0 +1,61 @@
+#!/bin/bash
+
+#inputs 
+
+demdata=./data/output_SRTMGL3.asc
+chemdata=./data/eg_chem_data.xyc
+
+rgn=-R0/326000/0/237000
+
+
+# setup digital elevation model (dem) and chemistry (source region concentrations) grids for chemical mixing model.
+
+# dem setup...
+
+# notes. [1] following adjustment of asc from opentopography (90 m SRTM) to raster downsampled so cells have 1000 x 1000 m resolution. 
+# note that this gdal was installed in conda environment (it is GDAL 3.7.2, released 2023/09/05). [2] ESRI:102028 is Albers Equal Area South Asia. convert asc 90 m dem into grid for forward model...
+
+gdalwarp -t_srs ESRI:102028 -tr 1000 1000 $demdata ./topo_tmp.asc
+
+# set origin to (0,0)
+sed 's/.*xllcorner.*/xllcorner 0/' topo_tmp.asc > topo_tmp2.asc
+sed 's/.*yllcorner.*/yllcorner 0/' topo_tmp2.asc > topo.asc
+rm -f topo_tmp*
+
+# chemical source setup...
+
+# notes. [1] the following generates grid (tif) of chemical data from point measurements. [2] I run this script in a conda environment, which has its own gdal install; > conda activate gis;  > ./generate_chem_grid.gmt. the following assumes that chemical data is stored with geographical (lat/lon) coordinates and concentrations (not log(concentration). )
+
+#awk '{if (NR>1) print $4, $5, $2}' <  $chemdata  | gdaltransform -s_srs EPSG:4326 -t_srs ESRI:102028 > chem_data.xyc
+
+gmt surface $chemdata $rgn $scl -I1000/1000 -T1 -M5000 -r -Gchem_data.asc=ef
+
+
+gdal_translate -of "GTiff" chem_data.asc chem_data.tif
+
+
+# plot results
+gmt gmtset PS_MEDIA = a1
+gmt gmtset LABEL_FONT = 10p
+gmt gmtset FONT_ANNOT_PRIMARY = 10p,Helvetica,black
+gmt gmtset FONT_ANNOT_SECONDARY = 10p,Helvetica,black
+scl=-JX5i
+
+gmt makecpt -T0/400/100 -Z -Chot -D > concs.cpt
+gmt makecpt -T0/1000/100 -Z -Cgray -D > topo.cpt
+
+# plot dem...
+gmt psbasemap $rgn $scl -Ba100000:"Range, m":WeSn -K -P   > hainan_co.ps
+gmt grdimage topo.asc $rgn $scl -Ba0 -Ctopo.cpt -O -K >> hainan_co.ps
+gmt psscale $rgn $scl -A -Ba500f100:"Elevation, mg": -Ctopo.cpt -D4i/0.25i/1.5i/0.15ih -O -E -K >> hainan_co.ps
+
+
+# plot chemistry... 
+gmt psbasemap $rgn $scl -Ba100000:"Range, m":weSn -K -O -X5.25i >> hainan_co.ps
+gmt grdimage chem_data.asc $rgn $scl -Ba0 -Cconcs.cpt -O -K  >> hainan_co.ps
+gmt psxy $chemdata $rgn $scl -Sc0.01i -Gwhite -Ba0 -O -K >> hainan_co.ps
+gmt psscale $rgn $scl -A -Ba200f100:"Concentration, mg/kg": -Cconcs.cpt -D4i/0.25i/1.5i/0.15ih -O -E -K >> hainan_co.ps
+
+ps2eps -f hainan_co.ps
+gmt psconvert hainan_co.eps
+open hainan_co.jpg
