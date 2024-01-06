@@ -41,7 +41,7 @@ drainage_area = accumulator.accumulate(weights=cell_area)
 
 # calculate accumulation of chemicals (concentrations)
 source_concs = imageio.v2.imread('./chem_data.tif').astype('double')
-concs = accumulator.accumulate(weights=source_concs)
+concs = accumulator.accumulate(weights=(source_concs*cell_area))
 concs = concs/drainage_area
 
 threshold = 1e7  # m^2
@@ -91,7 +91,7 @@ plt.subplot(2, 2, 3)
 #plt.imshow(drainage_area, norm=LogNorm(), extent=accumulator.extent, cmap="Greys")
 plt.imshow(concs, norm=LogNorm(), extent=accumulator.extent, cmap="viridis")
 cb = plt.colorbar()
-cb.set_label("Concentration, mg/kg)")
+cb.set_label("Concentration, mg/kg")
 plt.xlabel("Easting (m)")
 plt.ylabel("Northing (m)")
 plt.plot(
