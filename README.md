@@ -12,7 +12,7 @@ Once you have cloned (> git clone https://github.com/garethgroberts/concs_downst
 
 > python fwd_model.py
 
-In this simple example source concentrations are assumed to be have an arbitrary Gaussian distribution. You can replace `chem_data.asc' with your own geochemical data and `output_SRTMGL3.asc' with your own topographic data, they need to be on grids with the structure (same number of cells, same cell size etc.). There is an example for converting a text file into a suitable grid file in setup_dem_chem_grids.gmt. An acutal digital elevation model of Hainan is used to generate the drainage network along which concentrations are calculated. 
+In this simple example source concentrations are assumed to be have an arbitrary Gaussian distribution. You can replace `chem_data.asc` with your own geochemical data and `output_SRTMGL3.asc` with your own topographic data, they need to be on grids with the structure (same number of cells, same cell size etc.). There is an example for converting a text file into a suitable grid file in setup_dem_chem_grids.gmt. An acutal digital elevation model of Hainan is used to generate the drainage network along which concentrations are calculated. 
 
 
 ## Benchmarking
