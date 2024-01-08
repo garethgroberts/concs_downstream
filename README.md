@@ -1,6 +1,6 @@
 # Forward model to mix chemical concentrations downstream. 
 
-The code in this repository can be used to calculate the concentrations of things (e.g. chemicals) as they are transported downstream in a directed network (e.g. a river). It makes use of Alex Lipp's D8 accumulator code: https://github.com/AlexLipp/FlowAccum. The things being transported are assumed to be well mixed and conservative (e.g. no decay, transformation, etc.). See Lipp et al. ([2020](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020JF005700), [2021](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021GC009838)) for examples of the forward model (also discussed with respect to benchmarking below).  
+The code in this repository can be used to calculate the concentrations of things (e.g. chemicals) as they are transported downstream in a directed network (e.g. a river). It makes use of Alex Lipp's D8 accumulator code: https://github.com/AlexLipp/FlowAccum. The things being transported are assumed to be well mixed and conservative (e.g. no decay, transformation, etc.). 
 
 A setup script is included to produce the digital elevation model and grid of chemicals needed for the forward model. 
 
@@ -37,4 +37,4 @@ You can compare the results to a manual calculation of concentrations downstream
 ```math
 d = \frac{1}{Q} \sum^{N}_{i=1} q_i c_i \qquad {\rm where} \qquad Q = \sum^{N}_{i=1}q_i.
 ```
-where $` q_i `$ is export rate (or flux) from each cell, in this simple example $q = 1$, and $c$ = source concentrations in each cell. $i$ and $N$ are indices and maximum number of cells in the calculation. 
+where $` q_i `$ is export rate (or flux) from each cell, in this simple example $q = 1$, and $c$ = source concentrations in each cell. $i$ and $N$ are indices and maximum number of cells in the calculation. See Lipp et al. ([2020](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2020JF005700), [2021](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2021GC009838)) for extended discussion of this forward model, and an application to inverse problems where source concentrations are solved for by inverting downstream data. 
