@@ -26189,8 +26189,8 @@ static PyObject *__pyx_pf_6cfuncs_24get_profile(CYTHON_UNUSED PyObject *__pyx_se
  *         else:
  *             # Flow going diagonally
  *             downstream_distance += np.sqrt(dx**2 + dy**2)             # <<<<<<<<<<<<<<
- * 
- *     return profile, distance
+ *     profile.push_back(current_node)
+ *     distance.push_back(downstream_distance)
  */
       __pyx_t_3 = PyFloat_FromDouble(__pyx_v_downstream_distance); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 475, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
@@ -26235,22 +26235,50 @@ static PyObject *__pyx_pf_6cfuncs_24get_profile(CYTHON_UNUSED PyObject *__pyx_se
     }
   }
 
+  /* "cfuncs.pyx":476
+ *             # Flow going diagonally
+ *             downstream_distance += np.sqrt(dx**2 + dy**2)
+ *     profile.push_back(current_node)             # <<<<<<<<<<<<<<
+ *     distance.push_back(downstream_distance)
+ * 
+ */
+  try {
+    __pyx_v_profile.push_back(__pyx_v_current_node);
+  } catch(...) {
+    __Pyx_CppExn2PyErr();
+    __PYX_ERR(0, 476, __pyx_L1_error)
+  }
+
   /* "cfuncs.pyx":477
  *             downstream_distance += np.sqrt(dx**2 + dy**2)
+ *     profile.push_back(current_node)
+ *     distance.push_back(downstream_distance)             # <<<<<<<<<<<<<<
+ * 
+ *     return profile, distance
+ */
+  try {
+    __pyx_v_distance.push_back(__pyx_v_downstream_distance);
+  } catch(...) {
+    __Pyx_CppExn2PyErr();
+    __PYX_ERR(0, 477, __pyx_L1_error)
+  }
+
+  /* "cfuncs.pyx":479
+ *     distance.push_back(downstream_distance)
  * 
  *     return profile, distance             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_6 = __pyx_convert_vector_to_py_long(__pyx_v_profile); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 477, __pyx_L1_error)
+  __pyx_t_6 = __pyx_convert_vector_to_py_long(__pyx_v_profile); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 479, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_4 = __pyx_convert_vector_to_py_float(__pyx_v_distance); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 477, __pyx_L1_error)
+  __pyx_t_4 = __pyx_convert_vector_to_py_float(__pyx_v_distance); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 479, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 477, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 479, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_6);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_6)) __PYX_ERR(0, 477, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_6)) __PYX_ERR(0, 479, __pyx_L1_error);
   __Pyx_GIVEREF(__pyx_t_4);
-  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_4)) __PYX_ERR(0, 477, __pyx_L1_error);
+  if (__Pyx_PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_4)) __PYX_ERR(0, 479, __pyx_L1_error);
   __pyx_t_6 = 0;
   __pyx_t_4 = 0;
   __pyx_r = __pyx_t_3;

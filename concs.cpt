@@ -1,0 +1,7 @@
+0	black	100	170/0/0	L
+100	170/0/0	200	255/85/0	L
+200	255/85/0	300	yellow	L
+300	yellow	400	white	B
+B	black
+F	white
+N	128
