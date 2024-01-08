@@ -4,9 +4,9 @@ The code in this repository can be used to calculate the concentrations of thing
 
 A setup script is included to produce the digital elevation model and grid of chemicals needed for the forward model. 
 
-Note that I installed gdal 3.7.3, and gmt 6.4.0 in a conda environment. Python version is 3.11.6.
+Note that I installed gdal 3.7.3, and gmt 6.4.0 in a conda environment, my python version is 3.11.6.
 
-Once you have cloned (git clone https://github.com/garethgroberts/concs_downstream.git) this repository you should be able to run the following scripts, which make use of example data:
+Once you have cloned (> git clone https://github.com/garethgroberts/concs_downstream.git) this repository you should be able to run the following scripts, which make use of example data:
 
 > ./setup_dem_chem_grids.gmt
 
