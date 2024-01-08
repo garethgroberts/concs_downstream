@@ -23,15 +23,17 @@ The directory "benchmark" contains a simple example for benchmarking. It shows r
 
 Top left panel shows the drainage area (essentially a grid of flow accumulation) generated from the `d8_benchmark.asc` file. Top right panel shows the source concentrations and the drainage network. Bottom left panel shows the planform of the river along which concentrations downstream are sought, and calculated concentrations (coloured grid). Bottom right shows source and downstream concentrations along the river shown in bottom left panel. 
 
-The files `d8_benchmark.asc` and `concs_benchmark.asc` can be used to change flow routing and source concentrations if you wish. Notes: [1] Flow directions follow the Esri scheme, i.e. flow from a cell to adjacent cardinal and intercardinal cells, going clockwise from 90 degrees (east), have values 1, 2, 4, 8, 16, 32, 64, 128. [2] after changing concs_benchmark.asc convert the asc-file into a tiff before running the forward model, I use: 
+The files `d8_benchmark.asc` and `concs_benchmark.asc` can be used to change flow routing and source concentrations if you wish. 
+
+Notes: [1] Flow directions follow the Esri scheme, i.e. flow from a cell to adjacent cardinal and intercardinal cells, going clockwise from 90 degrees (east), have values 1, 2, 4, 8, 16, 32, 64, 128. [2] After changing concs_benchmark.asc convert the asc-file into a tiff before running the forward model, I use: 
 
 > gdal_translate -of "GTiff" concs_benchmark.asc concs_benchmark.tif
 
-and to run the forward model: 
+To run the forward model: 
 
 > python fwd_model_benchmark.py
 
-You can compare the results to a manual calcualtion of concentrations downstream, $d$, if you wish. The forward model being solved is:
+You can compare the results to a manual calculation of concentrations downstream, $d$, if you wish. The forward model being solved is:
 ```math
 d = \frac{1}{Q} \sum^{N}_{i=1} q_i c_i \qquad {\rm where} \qquad Q = \sum^{N}_{i=1}q_i.
 ```
