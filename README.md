@@ -25,7 +25,7 @@ Top left panel shows the drainage area (essentially a grid of flow accumulation)
 
 The files `d8_benchmark.asc` and `concs_benchmark.asc` can be used to change flow routing and source concentrations if you wish. 
 
-Notes: [1] Flow directions follow the Esri scheme, i.e. flow from a cell to adjacent cardinal and intercardinal cells, going clockwise from 90 degrees (east), have values 1, 2, 4, 8, 16, 32, 64, 128. [2] After changing concs_benchmark.asc convert the asc-file into a tiff before running the forward model, I use: 
+Notes: [1] Flow directions follow the Esri scheme, i.e. flow from a cell to adjacent cardinal and intercardinal cells, going clockwise from 90 degrees (east), have values 1, 2, 4, 8, 16, 32, 64, 128. [2] After changing `concs_benchmark.asc` convert the asc file into a tiff before running the forward model, I use: 
 
 > gdal_translate -of "GTiff" concs_benchmark.asc concs_benchmark.tif
 
