@@ -25,7 +25,7 @@ The files d8_benchmark.asc and concs_benchmark.asc can be used to change flow ro
 
 > python fwd_model_benchmark.py
 
-You can compare the results to a manual calcualtion of concentrations downstream if you wish. The forward model being solved is:
+You can compare the results to a manual calcualtion of concentrations downstream, $d$, if you wish. The forward model being solved is:
 ```math
 d = \frac{1}{Q} \sum^{N}_{i=1} q_i c_i \qquad {\rm where} \qquad Q = \sum^{N}_{i=1}q_i.
 ```
