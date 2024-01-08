@@ -21,9 +21,9 @@ The directory "benchmark" contains a simple example for benchmarking. It shows r
 
 ![Figure_1](https://github.com/garethgroberts/concs_downstream/assets/11752321/6cacd0ca-9546-4766-a3c6-063cc4fb8319)
 
-Top left panel shows the drainage area (essentially a grid of flow accumulation) generated from the d8_benchmark.asc file. Top right panel shows the source concentrations and the drainage network. Bottom left panel shows the planform of the river along which concentrations downstream are sought, and calculated concentrations (coloured grid). Bottom right shows source and downstream concentrations along the river shown in bottom left panel. 
+Top left panel shows the drainage area (essentially a grid of flow accumulation) generated from the `d8_benchmark.asc` file. Top right panel shows the source concentrations and the drainage network. Bottom left panel shows the planform of the river along which concentrations downstream are sought, and calculated concentrations (coloured grid). Bottom right shows source and downstream concentrations along the river shown in bottom left panel. 
 
-The files d8_benchmark.asc and concs_benchmark.asc can be used to change flow routing and source concentrations if you wish. Notes: [1] Flow directions follow the Esri scheme, i.e. flow from a cell to adjacent cardinal and intercardinal cells, going clockwise from 90 degrees (east), have values 1, 2, 4, 8, 16, 32, 64, 128. [2] after changing concs_benchmark.asc convert the asc-file into a tiff before running the forward model, I use: 
+The files `d8_benchmark.asc` and `concs_benchmark.asc` can be used to change flow routing and source concentrations if you wish. Notes: [1] Flow directions follow the Esri scheme, i.e. flow from a cell to adjacent cardinal and intercardinal cells, going clockwise from 90 degrees (east), have values 1, 2, 4, 8, 16, 32, 64, 128. [2] after changing concs_benchmark.asc convert the asc-file into a tiff before running the forward model, I use: 
 
 > gdal_translate -of "GTiff" concs_benchmark.asc concs_benchmark.tif
 
