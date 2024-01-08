@@ -17,7 +17,7 @@ In this simple example source concentrations are assumed to be have an arbitrary
 
 ## Benchmarking
 
-The directory "benchmark" contains a simple example for benchmarking. It shows results for a single channel flowing atop a substrate with concentrations = 1 (arbitrary units, but let's say 1 mg/kg) in all cells part one in which concentration is 10 (mg/kg). The figure below shows the results. 
+The directory "benchmark" contains a simple example for benchmarking. It shows results for a single channel flowing atop a substrate with concentrations = 1 (arbitrary units, but let's say 1 mg/kg) in all cells part one in which concentration is 10 (mg/kg). The figure below shows the results. Only the cells in the central "column" flow outwards (all have flow directions = 4, i.e. to the 'south'). 
 
 ![Figure_1](https://github.com/garethgroberts/concs_downstream/assets/11752321/6cacd0ca-9546-4766-a3c6-063cc4fb8319)
 
