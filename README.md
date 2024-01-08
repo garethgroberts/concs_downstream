@@ -27,6 +27,6 @@ The files d8_benchmark.asc and concs_benchmark.asc can be used to change flow ro
 
 You can compare the results to a manual calcualtion of concentrations downstream if you wish. The forward model being solved is:
 
-$$ d = \frac{1}{Q} \sum^{N}_{i=1} q_i c_i \qquad {\rm where} Q = \sum^{N}_{i=1}q_i$$.
+$ d = \frac{1}{Q} \sum^{N}_{i=1} q_i c_i \qquad {\rm where} \qquad Q = \sum^{N}_{i=1}q_i $.
 
 where $` q_i `$ is export rate (or flux) from each cell, in this simple example $q = 1$, and $c$ = source concentrations in each cell. $i$ and $N$ are indices and maximum number of cells in the calculation. 
