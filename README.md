@@ -1,4 +1,4 @@
-# Forward model to mix chemical concentrations downstream. 
+# Forward model to predict chemical concentrations downstream from known sources. 
 
 The code in this repository can be used to calculate the concentrations of things (e.g. chemicals) as they are transported downstream in a directed network (e.g. a river nework). It makes use of Alex Lipp's D8 accumulator code: https://github.com/AlexLipp/FlowAccum. The things being transported are assumed to be well mixed and conservative (e.g. no decay, transformation, etc.). 
 
