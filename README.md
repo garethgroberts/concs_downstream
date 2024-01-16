@@ -12,12 +12,12 @@ Once you have cloned (> git clone https://github.com/garethgroberts/concs_downst
 
 > python fwd_model.py
 
-In this simple example, source concentrations are assumed to be have an arbitrary Gaussian distribution. You can replace `chem_data.asc` with your own geochemical data and `output_SRTMGL3.asc` with your own topographic data, they need to be grids with the same structure (same number of cells, same cell size etc.). There is an example for converting a text file into a suitable grid file in `setup_dem_chem_grids.gmt`. An acutal digital elevation model of Hainan is used to generate the drainage network along which concentrations are calculated. 
+In this simple example, source concentrations are assumed to be have an arbitrary Gaussian distribution. You can replace `chem_data.asc` with your own geochemical data and `output_SRTMGL3.asc` with your own topographic data, they need to be grids with the same structure (same number of cells, same cell size etc.). There is an example for converting a text file into a suitable grid file in `setup_dem_chem_grids.gmt`. An actual digital elevation model of Hainan is used to generate the drainage network along which concentrations are calculated. 
 
 
 ## Benchmarking
 
-The directory "benchmark" contains a simple example for benchmarking. It shows results for a single channel flowing atop a substrate with concentrations = 1 (arbitrary units, but let's say 1 mg/kg) in all cells part one in which concentration is 10 (mg/kg). The figure below shows the results. Only the cells in the central "column" flow outwards (all have flow directions = 4, i.e. to the 'south'). 
+The directory "benchmark" contains a simple example for benchmarking. It shows results for a single channel flowing atop a substrate with concentrations = 1 (arbitrary units, but let's say 1 mg/kg) in all cells apart from one in which concentration is 10 (mg/kg). The figure below shows the results. Only the cells in the central "column" flow outwards (all have flow directions = 4, i.e. to the 'south'). 
 
 ![Figure_1](https://github.com/garethgroberts/concs_downstream/assets/11752321/6cacd0ca-9546-4766-a3c6-063cc4fb8319)
 
